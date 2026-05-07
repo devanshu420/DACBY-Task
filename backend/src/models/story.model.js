@@ -24,12 +24,15 @@ const storySchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    bookmarkedBy: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    bookmarkedBy: {
+  type: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
+  default: []
+}
   },
   { timestamps: true },
 );
