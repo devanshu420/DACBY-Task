@@ -3,6 +3,8 @@ const authRoutes = require('./routes/user.routes');
 const storyRoutes = require('./routes/story.routes');
 const scraperRoutes = require("./routes/scraper.routes");
 
+const cors = require("cors");
+
 
 
 // cookie parser
@@ -10,6 +12,16 @@ const cookieParser = require('cookie-parser');
 
 // create express app
 const app = express();
+
+// Cors
+
+
+app.use(
+  cors({
+    origin: ["http://localhost:5173"], 
+    credentials: true, 
+  })
+);
 
 // Middleware
 app.use(cookieParser());
