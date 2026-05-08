@@ -1,4 +1,4 @@
-# Web Scraper 
+# Web Scraper
 
 A full stack MERN application that scrapes stories from Hacker News and allows users to view, authenticate, and bookmark their favorite stories.
 
@@ -6,33 +6,29 @@ A full stack MERN application that scrapes stories from Hacker News and allows u
 
 # Features
 
-- User registration and login
-- Cookie based authentication using JWT
-- View paginated stories
-- Bookmark and unbookmark stories
-- Persistent login using /auth/me
-- Protected routes for authenticated users
-- Global auth state using React Context
+| Feature | Description |
+|----------|-------------|
+| User Authentication | Register and login system |
+| JWT Cookie Auth | Secure authentication using httpOnly cookies |
+| Story Listing | Paginated stories from Hacker News |
+| Bookmark System | Save and remove bookmarks |
+| Session Persistence | Auto login using /auth/me |
+| Protected Routes | Only logged-in users can access certain features |
+| Global State | React Context for auth management |
 
 ---
 
 # Tech Stack
 
-Frontend:
-- React
-- React Router DOM
-- Axios
-- Context API
-- Tailwind CSS
-
-Backend:
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT
-- Cookie Parser
-- CORS
+| Frontend | Backend |
+|----------|---------|
+| React | Node.js |
+| React Router DOM | Express.js |
+| Axios | MongoDB |
+| Context API | Mongoose |
+| Tailwind CSS | JWT Authentication |
+|  | Cookie Parser |
+|  | CORS |
 
 ---
 
@@ -52,7 +48,7 @@ JWT_SECRET=your_secret_key
 ## Start backend server
 npm run dev
 
-Backend runs on:
+Backend runs at:
 http://localhost:5000
 
 ---
@@ -69,27 +65,31 @@ VITE_BASE_URL=http://localhost:5000/api
 ## Start frontend
 npm run dev
 
-Frontend runs on:
+Frontend runs at:
 http://localhost:5173
 
 ---
 
 # Authentication Flow
 
-- User logs in or registers
-- Backend sends JWT in httpOnly cookie
-- Frontend sends requests with withCredentials: true
-- /auth/me verifies user session
-- Auth state stored in React Context
+| Step | Flow |
+|------|------|
+| 1 | User logs in or registers |
+| 2 | Server sends JWT in httpOnly cookie |
+| 3 | Frontend uses withCredentials: true |
+| 4 | /auth/me validates session |
+| 5 | User state stored in React Context |
 
 ---
 
 # Bookmark Feature
 
-- Users can bookmark or remove bookmarks
-- Stored in MongoDB in bookmarkedBy array
-- UI updates instantly after API response
-- Requires authentication
+| Action | Result |
+|--------|--------|
+| Bookmark story | Adds user ID to bookmarkedBy |
+| Remove bookmark | Removes user ID from bookmarkedBy |
+| UI Update | Immediate state update after API response |
+| Requirement | User must be authenticated |
 
 ---
 
@@ -120,11 +120,13 @@ frontend/
 
 # Future Improvements
 
-- Search functionality
-- Infinite scroll
-- User dashboard
-- Categories and filtering
-- Dark mode
+| Feature | Status |
+|----------|--------|
+| Search functionality | Planned |
+| Infinite scroll | Planned |
+| User dashboard | Planned |
+| Categories and filtering | Planned |
+| Dark mode | Planned |
 
 ---
 
