@@ -101,8 +101,34 @@ const bookmarkStoryController = async (req, res) => {
   }
 };
 
+// get my bookmarks controller
+const getMyBookmarksController = async (req, res) => {
+  try {
+    const userId = req.user?._id;
+
+    if (!userId) {
+      return res.status(401).json({
+        message: "Unauthorized user",
+      });
+    }
+    const stories = await Story.find({
+      bookmarkedBy: userId,
+    }).sort({ createdAt: -1 });
+
+    return res.json({
+      stories,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Failed to fetch bookmarks",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   getStoriesController,
   getStoryByIdController,
   bookmarkStoryController,
+  getMyBookmarksController,
 };
