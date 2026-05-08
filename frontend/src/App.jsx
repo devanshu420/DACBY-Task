@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Bookmarks from "./pages/Bookmarks";
 
 import ProtectedRoute from "./components/ProtectedRoute";
-import Navbar from "./components/Navbar";
+import {Navbar} from "./components/Navbar.jsx";
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Bookmark, BookmarkCheck, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/axios";
 
 const Home = () => {
@@ -9,12 +10,15 @@ const Home = () => {
   const [page, setPage] = useState(1);
 
   // fetch logged-in user
+  const navigate = useNavigate();
+
   const fetchUser = async () => {
     try {
       const res = await api.get("/auth/me");
       setUser(res.data.user);
-    } catch {
+    } catch (err) {
       setUser(null);
+      navigate("/login"); 
     }
   };
 
